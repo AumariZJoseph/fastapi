@@ -6,6 +6,7 @@ from logging_config import setup_logging
 from services.health_check import test_supabase_connection
 from services.error_handler import global_exception_handler, AppError  # Add this import
 
+
 # Setup structured logging
 setup_logging()
 
@@ -28,7 +29,7 @@ app.add_exception_handler(AppError, global_exception_handler)
 # CORS configuration! Uncomment out in prod!
 allowed_origins = os.getenv(
     "ALLOWED_ORIGINS", 
-    "http://localhost:3000,http://127.0.0.1:3000,192.168.0.61"
+    "http://localhost:3000,http://127.0.0.1:3000,192.168.0.61,https://brain-bin-eight.vercel.app/"
 ).split(",")
 
 app.add_middleware(
@@ -59,10 +60,11 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
+    port = int(os.getenv("PORT", 8000))
     uvicorn.run(
         app, 
         host="0.0.0.0", 
-        port=8000,
+        port=port,
         access_log=True,
         log_config=None
     )
