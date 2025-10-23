@@ -1,4 +1,3 @@
-# backend/.dockerignore
 __pycache__
 *.pyc
 *.pyo
@@ -27,4 +26,4 @@ venv
 *.txt
 test*
 *.md
-.gitignore
+
