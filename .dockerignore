@@ -23,7 +23,6 @@ venv
 .DS_Store
 *.pdf
 *.docx
-*.txt
 test*
 *.md
 
